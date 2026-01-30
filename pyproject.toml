@@ -1,0 +1,29 @@
+[project]
+name = "yolo-trainer"
+dynamic = ["version"]
+authors = [{name = "wel2018", email = "kwei2021@foxmail.com"}]
+description = "-"
+dependencies = [
+    "aiohttp>=3.13.3",
+    "requests>=2.32.5",
+    "robotic-toolbox",
+]
+
+[tool.uv.sources]
+robotic-toolbox = { workspace = true }
+
+[[tool.uv.index]]
+url = "https://mirrors.aliyun.com/pypi/simple/"
+default = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["yolo_trainer"]  
+
+[tool.hatch.version]
+source = "code"
+path = "version.py"
+variable = "version"
